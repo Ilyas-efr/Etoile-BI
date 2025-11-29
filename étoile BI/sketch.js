@@ -12,8 +12,8 @@ else if (DESSIN_EST([46, 47])) N = 6000;
 else if (DESSIN_EST([48, 49])) N = 3600;
 
 // ----------------------------------------------------
-function setup() {
-  INIT();
+function renderDessin(opts = {}) {
+  INIT(opts);
 
   for (let I = 0; I < N; I++) {
     let T = I / N;
@@ -91,4 +91,9 @@ function setup() {
     if (I > 0) LPRINT(`D${X_},${Y_}`);
   }
   TRACE2();
+}
+
+function setup() {
+  // default render to canvas (PNG-capable)
+  renderDessin();
 }
